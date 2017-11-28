@@ -22,6 +22,8 @@ jobs:
       image_resource:
         type: docker-image
         source: {repository: ubuntu}
+      inputs:
+      - name: configuration
       run:
         path: cat
         args:
