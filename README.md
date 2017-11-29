@@ -15,10 +15,6 @@ it to a file to be used in a task.
 Writes a file to the destination with the arbitrary data from the resource's
 source configuration.
 
-#### Parameters
-
-* `file`: *Required.* Path to the file to upload, provided by an output of a task.
-
 ## Example Configuration
 
 An example pipeline exists in the `example` directory.
