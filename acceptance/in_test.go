@@ -36,15 +36,23 @@ var _ = Describe("In", func() {
 
 			_, err = io.WriteString(stdin, `{
 				"source": {
-					"filename": "example.json",
-					"data": "some-data"
+					"files": [
+						{
+							"filename": "example.json",
+							"data": "some-data"
+						},
+						{
+							"filename": "other-example.json",
+							"data": "some-other-data"
+						}
+					]
 				},
 				"version": {}
 			}`)
 			Expect(err).NotTo(HaveOccurred())
 		})
 
-		It("writes the data to the destination directory with the given filename", func() {
+		It("writes all files to the destination directory given the source file data", func() {
 			outputJSON, err := in.Output()
 			Expect(err).NotTo(HaveOccurred())
 			Expect(outputJSON).To(MatchJSON(`{
@@ -54,6 +62,10 @@ var _ = Describe("In", func() {
 			data, err := ioutil.ReadFile(filepath.Join(tempDir, "example.json"))
 			Expect(err).NotTo(HaveOccurred())
 			Expect(string(data)).To(Equal("some-data"))
+
+			data, err = ioutil.ReadFile(filepath.Join(tempDir, "other-example.json"))
+			Expect(err).NotTo(HaveOccurred())
+			Expect(string(data)).To(Equal("some-other-data"))
 		})
 	})
 })

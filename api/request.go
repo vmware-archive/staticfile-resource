@@ -12,6 +12,10 @@ type OutRequest struct {
 }
 
 type RequestSource struct {
+	Files []RequestSourceFile `json:"files"`
+}
+
+type RequestSourceFile struct {
 	Filename string `json:"filename"`
 	Data     string `json:"data"`
 }

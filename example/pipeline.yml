@@ -8,9 +8,13 @@ resources:
 - name: configuration
   type: staticfile
   source:
-    filename: config.yml
-    data: |
-      hello: world
+    files:
+    - filename: config.yml
+      data: |
+        hello: world
+    - filename: other-config.yml
+      data: |
+        goodbye: world
 
 jobs:
 - name: print-config
@@ -28,3 +32,4 @@ jobs:
         path: cat
         args:
         - configuration/config.yml
+        - configuration/other-config.yml

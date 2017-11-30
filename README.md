@@ -4,9 +4,11 @@ it to a file to be used in a task.
 
 ## Source Configuration
 
-* `filename`: *Required.* The name of the file to write to.
+* `files`: **Required.** An array of files to be written by the resource.
 
-* `data`: *Required.* The data that is written to the file.
+  * `filename`: **Required.** The name of the file to write to.
+
+  * `data`: **Required.** The data that is written to the file.
 
 ## Behavior
 

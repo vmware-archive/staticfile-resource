@@ -20,12 +20,14 @@ func main() {
 
 	in := api.NewIn()
 
-	err = in.WriteDataToDestination(
-		filepath.Join(destinationDirectory, inRequest.Source.Filename),
-		[]byte(inRequest.Source.Data),
-	)
-	if err != nil {
-		log.Fatal("failed to write data to file: ", err)
+	for _, file := range inRequest.Source.Files {
+		err = in.WriteDataToDestination(
+			filepath.Join(destinationDirectory, file.Filename),
+			[]byte(file.Data),
+		)
+		if err != nil {
+			log.Fatal("failed to write data to file: ", err)
+		}
 	}
 
 	json.NewEncoder(os.Stdout).Encode(api.Response{})
