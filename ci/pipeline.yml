@@ -1,0 +1,40 @@
+resource_types:
+- name: staticfile
+  type: docker-image
+  source:
+    repository: christianang/staticfile-resource
+
+resources:
+- name: staticfile-resource
+  type: git
+  source:
+    uri: https://github.com/christianang/staticfile-resource.git
+    branch: master
+
+- name: staticfile-resource-image
+  type: docker-image
+  source:
+    repository: christianang/staticfile-resource
+    username: {{dockerhub_username}}
+    password: {{dockerhub_password}}
+
+jobs:
+- name: run-tests
+  plan:
+  - aggregate:
+    - get: staticfile-resource
+      trigger: true
+  - task: run-tests
+    file: staticfile-resource/ci/tasks/run-tests/task.yml
+
+- name: bump-image
+  plan:
+  - aggregate:
+    - get: staticfile-resource
+      passed: [run-tests]
+      trigger: true
+  - task: prepare-workspace
+    file: staticfile-resource/ci/tasks/prepare-workspace/task.yml
+  - put: staticfile-resource-image
+    params:
+      build: workspace

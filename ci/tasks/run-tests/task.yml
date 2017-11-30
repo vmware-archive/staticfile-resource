@@ -1,0 +1,13 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+
+inputs:
+  - name: staticfile-resource
+
+run:
+  path: staticfile-resource/ci/tasks/run-tests/task.sh
