@@ -8,15 +8,22 @@ resources:
 - name: staticfile-resource
   type: git
   source:
-    uri: https://github.com/pivotal-cf/staticfile-resource.git
+    uri: git@github.com:pivotal-cf/staticfile-resource.git
     branch: master
+    private_key: ((git_private_key))
 
 - name: staticfile-resource-image
   type: docker-image
   source:
     repository: czero/staticfile-resource
-    username: {{dockerhub_username}}
-    password: {{dockerhub_password}}
+    username: ((dockerhub_username))
+    password: ((dockerhub_password))
+
+- name: base-image
+  type: docker-image
+  source:
+    repository: concourse/buildroot
+    tag: base
 
 jobs:
 - name: run-tests
@@ -32,6 +39,8 @@ jobs:
   - aggregate:
     - get: staticfile-resource
       passed: [run-tests]
+      trigger: true
+    - get: base-image
       trigger: true
   - task: prepare-workspace
     file: staticfile-resource/ci/tasks/prepare-workspace/task.yml
