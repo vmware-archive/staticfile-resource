@@ -38,3 +38,15 @@ resources:
     - filename: {{filename}}
       data: {{configuration_data}}
 ```
+
+## Development
+
+This resource is written in Golang. `dep` is used to vendor the dependencies.
+To download all dependencies run `dep ensure`.
+
+### Running tests
+
+[Ginkgo](https://github.com/onsi/ginkgo) is the testing framework used by this
+project.
+
+Run `ginkgo -r .` from the directory to run all the tests.
