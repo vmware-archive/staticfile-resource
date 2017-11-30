@@ -34,6 +34,7 @@ resources:
 - name: configuration
   type: staticfile
   source:
-    filename: {{filename}}
-    data: {{configuration_data}}
+    files:
+    - filename: {{filename}}
+      data: {{configuration_data}}
 ```
