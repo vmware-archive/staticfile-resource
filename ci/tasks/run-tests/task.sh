@@ -10,8 +10,10 @@ function main() {
 
   mkdir -p "${GOPATH}/src/github.com/christianang"
   ln -s "${ROOT}/staticfile-resource" "${GOPATH}/src/github.com/christianang/staticfile-resource"
-  dep ensure "${GOPATH}/src/github.com/christianang/staticfile-resource"
-  ginkgo -r "${GOPATH}/src/github.com/christianang/staticfile-resource"
+  pushd "${GOPATH}/src/github.com/christianang/staticfile-resource" > /dev/null
+    dep ensure
+    ginkgo -r .
+  popd > /dev/null
 }
 
 main
