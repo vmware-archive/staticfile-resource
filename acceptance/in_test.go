@@ -56,7 +56,9 @@ var _ = Describe("In", func() {
 			outputJSON, err := in.Output()
 			Expect(err).NotTo(HaveOccurred())
 			Expect(outputJSON).To(MatchJSON(`{
-				"version": {}
+				"version": {
+					"version": "latest"
+				}
 			}`))
 
 			data, err := ioutil.ReadFile(filepath.Join(tempDir, "example.json"))

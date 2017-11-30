@@ -15,5 +15,9 @@ func main() {
 		log.Fatal("failed to decode: ", err)
 	}
 
-	json.NewEncoder(os.Stdout).Encode(api.Response{})
+	json.NewEncoder(os.Stdout).Encode(api.Response{
+		api.ResponseVersion{
+			Version: "latest",
+		},
+	})
 }

@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 
@@ -16,5 +15,9 @@ func main() {
 		log.Fatal("failed to decode: ", err)
 	}
 
-	fmt.Println("[{}]")
+	json.NewEncoder(os.Stdout).Encode([]api.ResponseVersion{
+		{
+			Version: "latest",
+		},
+	})
 }

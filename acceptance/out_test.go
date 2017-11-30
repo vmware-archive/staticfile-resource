@@ -29,7 +29,9 @@ var _ = Describe("Out", func() {
 		output, err := out.Output()
 		Expect(err).NotTo(HaveOccurred())
 		Expect(output).To(MatchJSON(`{
-			"version": {}
+			"version": {
+				"version": "latest"
+			}
 		}`))
 	})
 })

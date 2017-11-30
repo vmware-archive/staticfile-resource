@@ -28,6 +28,10 @@ var _ = Describe("Check", func() {
 
 		output, err := check.Output()
 		Expect(err).NotTo(HaveOccurred())
-		Expect(output).To(MatchJSON("[{}]"))
+		Expect(output).To(MatchJSON(`[
+			{
+				"version": "latest"
+			}
+		]`))
 	})
 })

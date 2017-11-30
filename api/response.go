@@ -5,4 +5,5 @@ type Response struct {
 }
 
 type ResponseVersion struct {
+	Version string `json:"version"`
 }

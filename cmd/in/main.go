@@ -30,5 +30,9 @@ func main() {
 		}
 	}
 
-	json.NewEncoder(os.Stdout).Encode(api.Response{})
+	json.NewEncoder(os.Stdout).Encode(api.Response{
+		api.ResponseVersion{
+			Version: "latest",
+		},
+	})
 }
