@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/christianang/staticfile-resource/api"
+	"github.com/pivotal-cf/staticfile-resource/api"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

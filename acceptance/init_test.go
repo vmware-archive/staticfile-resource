@@ -23,13 +23,13 @@ var (
 var _ = BeforeSuite(func() {
 	var err error
 
-	pathToCheck, err = gexec.Build("github.com/christianang/staticfile-resource/cmd/check")
+	pathToCheck, err = gexec.Build("github.com/pivotal-cf/staticfile-resource/cmd/check")
 	Expect(err).NotTo(HaveOccurred())
 
-	pathToIn, err = gexec.Build("github.com/christianang/staticfile-resource/cmd/in")
+	pathToIn, err = gexec.Build("github.com/pivotal-cf/staticfile-resource/cmd/in")
 	Expect(err).NotTo(HaveOccurred())
 
-	pathToOut, err = gexec.Build("github.com/christianang/staticfile-resource/cmd/out")
+	pathToOut, err = gexec.Build("github.com/pivotal-cf/staticfile-resource/cmd/out")
 	Expect(err).NotTo(HaveOccurred())
 })
 

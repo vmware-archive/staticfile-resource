@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/christianang/staticfile-resource/api"
+	"github.com/pivotal-cf/staticfile-resource/api"
 )
 
 func main() {

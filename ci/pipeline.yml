@@ -2,19 +2,19 @@ resource_types:
 - name: staticfile
   type: docker-image
   source:
-    repository: christianang/staticfile-resource
+    repository: czero/staticfile-resource
 
 resources:
 - name: staticfile-resource
   type: git
   source:
-    uri: https://github.com/christianang/staticfile-resource.git
+    uri: https://github.com/pivotal-cf/staticfile-resource.git
     branch: master
 
 - name: staticfile-resource-image
   type: docker-image
   source:
-    repository: christianang/staticfile-resource
+    repository: czero/staticfile-resource
     username: {{dockerhub_username}}
     password: {{dockerhub_password}}
 
