@@ -1,6 +1,6 @@
 # staticfile-resource
 A concourse resource to take arbitrary data passed in from a pipeline and writes
-it to a file to be used in a task.
+them to files to be used in a task.
 
 ## Source Configuration
 
@@ -12,10 +12,10 @@ it to a file to be used in a task.
 
 ## Behavior
 
-### `in`: Write a static file with source data.
+### `in`: Write static files with data from the resource's source configuration.
 
-Writes a file to the destination with the arbitrary data from the resource's
-source configuration.
+Writes files to the destination directory with the arbitrary data from the
+resource's source configuration.
 
 ## Example Configuration
 
